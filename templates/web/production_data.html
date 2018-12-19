@@ -1,0 +1,58 @@
+{% extends "base/base.html" %}
+
+
+{% block title %}
+Poduction Data
+{% endblock title %}
+
+
+{% block content %}
+<div class="container-fluid">
+
+        <!-- started event archive table -->
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="card">
+                    <div class="card-header">
+                        <i class="fa fa-align-justify"></i> Production Summary
+                    </div>
+                    {% for line in line_data  %}
+                            <p>Line-{{forloop.counter}}:  {{line}}</p>
+                    {% endfor %}
+                    <div class="card-header">
+                            <i class="fa fa-align-justify"></i> Production Details
+                    </div>
+                    <div class="card-block">
+                        <table class="table table-bordered table-striped table-sm text-center">
+                            <thead>
+                            <tr>
+                                <th>Line No</th>
+                                <th>Production Size</th>
+                                <th>Date-Time</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            {% for prodn in productions %}
+                            <tr>
+                                <td>{{prodn.line.line_no}}</td>
+                                <td class="text-center">
+                                    <a href="#" class="btn ">{{prodn.production_size }}</a>
+                                </td>
+                            <td><a href="#" class="test-success"><span class="btn text-dark">{{prodn.production_date}}</span></a></td>
+                            </tr>
+                            {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <!--/.col-->
+        </div>
+        <!-- end event archive table -->
+    
+    </div>
+    
+{% endblock content %}
+    
+
+    
