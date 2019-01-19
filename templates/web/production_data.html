@@ -7,18 +7,15 @@ Poduction Data
 
 
 {% block content %}
-<div class="container-fluid">
-
-        <!-- started event archive table -->
-        <div class="row">
-            <div class="col-lg-12">
-                <div class="card">
+                <center>
                     <div class="card-header">
                         <i class="fa fa-align-justify"></i> Production Summary
                     </div>
                     {% for line in line_data  %}
                             <p>Line-{{forloop.counter}}:  {{line}}</p>
                     {% endfor %}
+                </center>
+                    
                     <div class="card-header">
                             <i class="fa fa-align-justify"></i> Production Details
                     </div>
@@ -44,14 +41,7 @@ Poduction Data
                             </tbody>
                         </table>
                     </div>
-                </div>
-            </div>
-            <!--/.col-->
-        </div>
-        <!-- end event archive table -->
-    
-    </div>
-    
+             
 {% endblock content %}
     
 

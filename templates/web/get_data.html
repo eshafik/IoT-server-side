@@ -1,0 +1,62 @@
+{% extends 'base/basic.html' %}
+
+
+{% block title %}
+  Get Data
+{% endblock title %}
+
+
+{% block content %}
+<div class="row">
+  <div class="col-sm">
+    <div class="card">
+      <div class="card-body">
+        <right> <h3><a href="{%url 'home' %}"><button class="btn btn-primary" style="height:40px;width:120px">Go Home</button></a></h3>  </right>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+
+<div class="row">
+  <div class="col-sm">
+    <div class="card">
+      <div class="card-body">
+        <center><h1>Select Date to get Transportation Data</h1> </center>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<div class="row">
+<div class="col-sm"></div>
+<div class="col-sm">
+<div class="card">
+  <div class="card-body">
+    <form method="POST">
+          {% csrf_token %}
+          {{ form.as_p }}
+          <button type="submit" class="btn btn-primary" style="height:40px;width:120px">Get Data</button>
+  </form>
+  </div>
+</div>
+</div>
+<div class="col-sm"></div>
+</div>
+
+<script>
+$(function() {
+$( ".datepicker" ).datepicker({
+changeMonth: true,
+changeYear: true,
+yearRange: "2017:2050",
+// You can put more options here.
+
+});
+});
+</script>
+{% endblock content %}
+  
+  

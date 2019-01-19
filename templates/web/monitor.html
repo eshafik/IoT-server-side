@@ -1,0 +1,20 @@
+{% extends "base/base.html" %}
+{% load static %}
+
+{% block title %}
+    Live Monitor
+{% endblock title %}
+
+
+{% block content %}
+<center>
+    <H3 id="live1">........</H3>
+  
+
+</center>
+<script type="text/javascript" src="{% static 'js/pubnub.js' %}"></script>
+    <!-- Main JavaScript -- Load this in the end -->
+    <script type="text/javascript" src="{% static 'js/main.js' %}"></script>
+    
+{% endblock content %}
+    

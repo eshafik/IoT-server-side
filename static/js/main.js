@@ -61,7 +61,7 @@ console.log("I am connected!");
 
     });
 
-
+    var temp = 0;
     pubnub.addListener({
         status: function(statusEvent) {
             if (statusEvent.category === "PNConnectedCategory") {
@@ -70,9 +70,6 @@ console.log("I am connected!");
         },
         message: function(message) {
         var msg = message.message;
-        
-        console.log(JSON.stringify(msg));
-        console.log(typeof(msg));
         var csrftoken = Cookies.get('csrftoken');
         console.log("csrf: "+ csrftoken);
         function csrfSafeMethod(method) {
@@ -96,7 +93,43 @@ console.log("I am connected!");
         //         'X-CSRF-Token': csrftoken 
         //    },
             success: function(data){
-                console.log("success");
+                console.log("successful");
+                var temp = msg.split(" ");
+                var x = "Line: "+temp[0]+"  Production: "+temp[1]+" || \
+                Date:"+data.date;
+                document.getElementById("live1").innerHTML=x;
+                console.log(data.date);
+                console.log(typeof(data));
+
+                
+
+                // //For Time
+                // var d = new Date();
+                // var utc = d.getTime() + (d.getTimezoneOffset() * 60000);
+                // var nd = new Date(utc + (3600000*offset));
+                // var time = nd.toLocaleString();
+                
+                
+                // var update = [];
+                // if(update.length<5){
+                //     console.log('He..........');
+                //     update.push(msg);
+                //     console.log(update.length);
+                // }else{
+                //     console.log('Hi..........');
+                //     var i;
+                    
+                //     for(i=0;i<update.length-1;i++){
+                //         update[i] = update[i+1];
+                //     }
+                //     update[i] = msg;
+                // }
+                // var i;
+                // for(i=update.length-1;i<=0;i--){
+                //     document.getElementById("live"+i.toString()).innerHTML =update[i] ;
+                    
+                // }
+                
             },
             error: function(res,e){
                 alert("Something Went Wrong");
@@ -126,9 +159,9 @@ console.log("I am connected!");
 	  },
       function (status, response) {
         if (status.error) {
-            console.log(status)
+            // console.log(status)
         } else {
-            console.log("message Published w/ timetoken", response.timetoken)
+            // console.log("message Published w/ timetoken", response.timetoken)
         }
        }
 	  );
